@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 import './App.css'
-import Header from './Header.jsx'
-import Board from './Board.jsx'
+import Header from './components/Header.jsx'
+import Board from './components/Board.jsx'
 
 const PLAYERX = "Player 1 - Xs"
 const PLAYER0 = "Player 2 - 0s"
