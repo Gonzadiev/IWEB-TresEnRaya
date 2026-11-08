@@ -1,15 +1,25 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+
 import './App.css'
+import Header from './Header.jsx'
+import Board from './Board.jsx'
+
+const PLAYERX = "Player 1 - Xs"
+const PLAYER0 = "Player 2 - 0s"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [turn, setTurn] = useState(PLAYER0)
+  const [values, setValues] = useState([
+    ["X", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"]
+  ])
 
   return (
     <>
-      
+      <h1>TicTacToe</h1>
+      <Header turn={turn}/>
+      <Board values={values}/>
     </>
   )
 }
