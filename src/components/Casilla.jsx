@@ -11,7 +11,15 @@ const casillaStyle = {
 
 
 function Casilla (props){
-    return <button style={casillaStyle} onClick={() => props.appClick(props.row, props.col)}>
+
+  function casillaClick(){
+    if (props.value === "-"){
+      props.appClick(props.row, props.col)
+    } else {
+      console.log("Casilla ocupada")
+    }
+  }
+    return <button style={casillaStyle} onClick={casillaClick} className={props.value === "-" ? "libre" : "casilla_ocupada"}>
       {props.value}
     </button>
        

@@ -182,3 +182,11 @@
     border-right-color: var(--border);
   }
 }
+
+.libre{
+  cursor: pointer;
+}
+
+.casilla_ocupada{
+  cursor: not-allowed;
+}
