@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import './App.css'
 import Header from './components/Header.jsx'
@@ -7,6 +7,7 @@ import Reset from './components/Reset.jsx'
 
 const PLAYERX = "Player 1 - Xs"
 const PLAYER0 = "Player 2 - 0s"
+const MYURL = "https://api.npoint.io/c734e05e43c5b87dd971";
 
 function App() {
   const [moves, setMoves] = useState(0)
@@ -16,6 +17,20 @@ function App() {
     ["-", "-", "-"],
     ["-", "-", "-"]
   ])
+  const [loading, setLoading] = useState(true)
+  
+  useEffect (() => {
+    async function fetchData() {
+      const response = await fetch(MYURL)
+      const data = await response.json()
+      console.log(data)
+      setTurn(data.turn)
+      setMoves(data.moves)
+      setValues(data.values)
+      setLoading(false)
+    }
+    fetchData()
+  },[])
 
   function appClick(rowNumber, colNumber) {
     console.log("Click en " + rowNumber + " " + colNumber)
@@ -41,10 +56,12 @@ function App() {
   return (
     <>
       <h1>TicTacToe</h1>
-      <Header turn={turn}/>
-      <Board values={values} appClick={appClick}/>
-      <h3>Número de movimientos: {moves}</h3>
-      <Reset resetClick={resetClick}/>
+      {loading ? <h2>CARGANDO...</h2> : <div>
+        <Header turn={turn}/>
+        <Board values={values} appClick={appClick}/>
+        <h3>Número de movimientos: {moves}</h3>
+        <Reset resetClick={resetClick}/>
+      </div>}
     </>
   )
 }
