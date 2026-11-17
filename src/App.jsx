@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header.jsx'
 import Board from './components/Board.jsx'
 import Reset from './components/Reset.jsx'

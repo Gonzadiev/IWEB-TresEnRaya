@@ -1,7 +1,10 @@
+
+import Button from 'react-bootstrap/Button';
+
 function Reset(props) {
     return(
         <div>
-            <button onClick={props.resetClick}>RESET</button>
+            <Button variant="warning" onClick={props.resetClick}>RESET</Button>
         </div>
     )
 }
