@@ -5,7 +5,7 @@ function Board(props){
             {
               props.values.map((rowValues, index) => {
                 let row = rowValues.map((value, columnIndex) => {
-                  return <Casilla key={index + "-" + columnIndex} value={value}/>
+                  return <Casilla key={index + "-" + columnIndex} row={index} col={columnIndex} value={value} appClick={props.appClick} />
                 })
                 return <div key={"row" + index}>{row}</div>
                 })

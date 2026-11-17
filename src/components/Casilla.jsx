@@ -11,7 +11,9 @@ const casillaStyle = {
 
 
 function Casilla (props){
-    return <button style={casillaStyle}>{props.value}</button>
+    return <button style={casillaStyle} onClick={() => props.appClick(props.row, props.col)}>
+      {props.value}
+    </button>
        
 }
 export default Casilla

@@ -15,11 +15,20 @@ function App() {
     ["-", "-", "-"]
   ])
 
+  function appClick(rowNumber, colNumber) {
+    console.log("Click en " + rowNumber + " " + colNumber)
+    let valuesCopy = JSON.parse(JSON.stringify(values))
+    let newTurn = turn === PLAYERX ? "X" : "0"
+    valuesCopy[rowNumber][colNumber] = newTurn
+    setTurn(turn === PLAYER0 ? PLAYERX : PLAYER0)
+    setValues(valuesCopy)
+  }
+
   return (
     <>
       <h1>TicTacToe</h1>
       <Header turn={turn}/>
-      <Board values={values}/>
+      <Board values={values} appClick={appClick}/>
     </>
   )
 }
